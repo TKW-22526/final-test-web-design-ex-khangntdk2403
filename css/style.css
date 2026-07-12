@@ -330,7 +330,7 @@ h1, h2, h3, h4, h5 {
   background: var(--color-white);
 }
 
-.header__search svg {
+.header__search i {
   position: absolute;
   left: 16px;
   top: 50%;
@@ -342,7 +342,6 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-shrink: 0;
 }
 
 .icon-btn {
