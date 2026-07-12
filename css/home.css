@@ -1,0 +1,203 @@
+/* ============================================
+   CodeFlow — Homepage Styles
+   ============================================ */
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-top: calc(var(--header-height) + 56px);
+  padding-bottom: 56px;
+  background: linear-gradient(180deg, #fff7f0 0%, var(--color-bg) 100%);
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero__content {
+  flex: 1 1 480px;
+}
+
+.hero__slide {
+  display: none;
+}
+
+.hero__slide.is-active {
+  display: block;
+}
+
+.hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hero__title {
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hero__title .highlight {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.hero__desc {
+  margin-top: 18px;
+  font-size: 17px;
+  color: var(--color-gray-500);
+  max-width: 480px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+
+
+.banner img{
+  border-radius: 10px;
+}
+
+.hero__slider-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.hero__slider-dots button {
+  width: 26px;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--color-gray-300);
+}
+
+.hero__slider-dots button.is-active {
+  background: var(--color-primary);
+  width: 40px;
+}
+
+/* ---------- Categories ---------- */
+.categories__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.category-card {
+  flex: 1 1 200px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category-card:hover {
+  border-color: var(--color-primary);
+}
+
+.category-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.category-card__name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.category-card__count {
+  font-size: 13px;
+  color: var(--color-gray-500);
+}
+
+/* ---------- Course grid ---------- */
+.courses__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.courses__grid .course-card {
+  flex: 1 1 270px;
+  max-width: calc(25% - 18px);
+}
+
+.section__head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.section__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+
+.section__tabs button {
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gray-500);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.section__tabs button.is-active,
+.section__tabs button:hover {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-color: var(--color-dark);
+}
+
+
+
+/* reponsive */
+@media (max-width: 1024px) {
+  .hero__title { font-size: 38px; }
+  .courses__grid .course-card {
+    max-width: calc(50% - 12px);
+  }
+  .header__search { max-width: 320px; }
+}
+
+@media (max-width: 768px) {
+  .banner{
+    display: none;
+  }
+  .header__search { display: none; }
+  .header__hamburger { display: flex; }
+  .section { padding: 60px 0; }
+  .hero { padding-top: calc(var(--header-height) + 32px); }
+  .hero__title { font-size: 30px; }
+  .section__title { font-size: 26px; }
+  .courses__grid .course-card { max-width: 100%; }
+  .newsletter { flex-direction: column; text-align: center; padding: 36px 24px; }
+  .newsletter__form { max-width: 100%; }
+  .footer__grid { gap: 32px; }
+}

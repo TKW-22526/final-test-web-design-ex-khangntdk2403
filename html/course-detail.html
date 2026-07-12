@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chi tiết khóa học</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Bỏ qua đến nội dung chính</a>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="../index.html" class="header__brand">
+      <span class="header__logo">DK</span>
+      <span class="header__name">Code<span></span></span>
+    </a>
+    <div class="header__search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" placeholder="Tìm khóa học...">
+    </div>
+    <div class="header__actions">
+      <button class="icon-btn" aria-label="Thông báo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        <span class="icon-btn__badge">3</span>
+      </button>
+      <button class="icon-btn" aria-label="Giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        <span class="icon-btn__badge">2</span>
+      </button>
+      <a href="dashboard.html" class="header__avatar"><div class="avatar-ph">DK</div></a>
+      <a href="login.html" class="btn btn--primary btn--sm">Đăng nhập</a>
+      <button class="header__hamburger" aria-label="Mở menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="header__mobile-panel">
+    <div class="header__search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" placeholder="Tìm khóa học...">
+    </div>
+    <nav class="header__mobile-links">
+      <a href="../index.html">Trang chủ</a>
+      <a href="courses.html">Khóa học</a>
+      <a href="login.html">Đăng nhập</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Trang chủ</a><span>/</span><a href="courses.html">Khóa học</a><span>/</span><span>Frontend từ Zero đến Hero</span></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detail-layout">
+      <div class="detail-main">
+        <div class="detail-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/HGTJBPNC-Gw?si=WNsi5l0o-PmzqVYO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <h1 class="detail-title">Lập trình Frontend từ Zero đến Hero</h1>
+        <div class="detail-meta">
+          <span>GV: <strong>Trần Minh Khang</strong></span>
+          <span>⭐ <strong>4.9</strong> (1,204 đánh giá)</span>
+          
+        </div>
+
+        <div class="detail-tabs">
+          <button class="is-active" data-tab="tab-desc">Mô tả</button>
+          <button data-tab="tab-content">Nội dung bài học</button>
+          <button data-tab="tab-review">Đánh giá</button>
+        </div>
+
+        <div class="detail-panel is-active" id="tab-desc">
+          <p>Khóa học đưa bạn đi từ những kiến thức nền tảng nhất của HTML, CSS, JavaScript cho đến khi có thể tự tay xây dựng một website hoàn chỉnh, responsive trên mọi thiết bị.</p>
+          <p>Phù hợp cho người mới hoàn toàn chưa biết lập trình, sinh viên IT muốn củng cố nền tảng, hoặc người trái ngành muốn chuyển sang lập trình web.</p>
+        </div>
+
+
+        
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="enroll-card">
+          <div class="enroll-card__price">599.000₫ <small>899.000₫</small></div>
+          <div style="font-size:12.5px;color:var(--color-gray-500);">Ưu đãi kết thúc sau 2 ngày</div>
+          <div class="enroll-card__actions">
+            <a href="#" class="btn btn--primary btn--block">Mua khóa học</a>
+            <a href="#" class="btn btn--outline btn--block">Học thử miễn phí</a>
+          </div>
+          <ul class="enroll-card__list">
+            <li>+ 30 bài học</li>
+            <li>+ Trình độ: Người mới bắt đầu</li>
+            <li>+ Truy cập trọn đời</li>
+            <li>+ Chứng chỉ hoàn thành</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="header__brand"><span class="header__logo">DK</span><span class="header__name">Code<span></span></span></div>
+        <p class="footer__desc">Nền tảng học lập trình trực tuyến với lộ trình rõ ràng và cộng đồng hỗ trợ.</p>
+        <div class="footer__social"><a href="#">F</a><a href="#">Y</a></div>
+      </div>
+      <div class="footer__col"><h4>Danh mục</h4><ul><li><a href="courses.html">Frontend</a></li><li><a href="courses.html">Backend</a></li></ul></div>
+      <div class="footer__col"><h4>Liên hệ</h4><ul><li>dkcode@gmail.com.vn</li><li>0345625330</li></ul></div>
+    </div>
+    
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
