@@ -1,8 +1,4 @@
-/* ============================================
-   CodeFlow — Homepage Styles
-   ============================================ */
-
-/* ---------- Hero ---------- */
+/* hero */
 .hero {
   padding-top: calc(var(--header-height) + 56px);
   padding-bottom: 56px;

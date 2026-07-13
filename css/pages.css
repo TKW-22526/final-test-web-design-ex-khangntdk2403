@@ -1,7 +1,3 @@
-/* ============================================
-   CodeFlow — Inner Pages Styles
-   (courses, course-detail, login, register, dashboard)
-   ============================================ */
 
 .page-hero {
   padding: calc(var(--header-height) + 40px) 0 32px;
@@ -182,7 +178,7 @@
   display: none;
 }
 
-/* ---------- Course detail page ---------- */
+/* khoa hoc chi tiet */
 .detail-layout {
   display: flex;
   align-items: flex-start;
@@ -750,7 +746,7 @@
   font-weight: 600;
 }
 
-/* ---------- Responsive: pages ---------- */
+/* reponsive */
 
 @media (max-width: 1024px) {
   .detail-layout { flex-direction: column; }

@@ -82,7 +82,7 @@ for (let i = 0; i < data.length; i++) {
             </div>
 
             <div class="course-card__meta">
-                ⭐ 4.8 | 500 học viên
+                <i class="fa-solid fa-star"></i> 4.8 | 500 học viên
             </div>
 
             <div class="course-card__footer">
