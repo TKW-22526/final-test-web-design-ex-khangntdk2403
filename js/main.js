@@ -7,7 +7,7 @@ let data = [
         ten: "Lập trình Frontend từ Zero đến Hero",
         gv: "Trần Minh Khang",
         anh: "assets/img/html&css.jpg",
-        gia: "599.000₫"
+        gia: "Miễn phí"
     },
 
     {
