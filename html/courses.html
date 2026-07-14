@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="../css/pages.css">
 </head>
 <body>
-<a href="#main" class="skip-link">Bỏ qua đến nội dung chính</a>
 
 <header class="header">
   <div class="container header__inner">
@@ -69,26 +68,26 @@
 
         <div class="filter-group">
           <div class="filter-group__title">Danh mục</div>
-          <label class="filter-option"><input type="checkbox"> Frontend <span class="count">32</span></label>
-          <label class="filter-option"><input type="checkbox"> Backend <span class="count">28</span></label>
-          <label class="filter-option"><input type="checkbox"> Mobile <span class="count">14</span></label>
-          <label class="filter-option"><input type="checkbox"> UI/UX <span class="count">11</span></label>
-          <label class="filter-option"><input type="checkbox"> AI <span class="count">9</span></label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="category" data-value="frontend"> Frontend <span class="count">32</span></label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="category" data-value="backend"> Backend <span class="count">28</span></label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="category" data-value="mobile"> Mobile <span class="count">14</span></label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="category" data-value="uiux"> UI/UX <span class="count">11</span></label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="category" data-value="ai"> AI <span class="count">9</span></label>
         </div>
 
         <div class="filter-group">
           <div class="filter-group__title">Giá</div>
           <div class="price-range">
-            <input type="range" min="0" max="1000000" value="1000000">
-            <span style="font-size:13px;color:var(--color-gray-500);">0₫ — 1.000.000₫</span>
+            <input type="range" id="priceRange" min="0" max="1000000" step="10000" value="1000000">
+            <span id="priceRangeLabel" style="font-size:13px;color:var(--color-gray-500);">0₫ — 1.000.000₫</span>
           </div>
         </div>
 
         <div class="filter-group">
           <div class="filter-group__title">Trình độ</div>
-          <label class="filter-option"><input type="checkbox"> Người mới bắt đầu</label>
-          <label class="filter-option"><input type="checkbox"> Trung cấp</label>
-          <label class="filter-option"><input type="checkbox"> Nâng cao</label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="level" data-value="beginner"> Người mới bắt đầu</label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="level" data-value="intermediate"> Trung cấp</label>
+          <label class="filter-option"><input type="checkbox" data-filter-type="level" data-value="advanced"> Nâng cao</label>
         </div>
 
        
@@ -97,101 +96,19 @@
       <section class="courses-main">
         <div class="courses-main__toolbar">
           <button type="button" class="btn btn--outline btn--sm mobile-filter-toggle">Bộ lọc</button>
-          <span class="courses-main__count">Hiển thị 112 khóa học</span>
+          <span class="courses-main__count" id="coursesCount">Hiển thị 9 khóa học</span>
           <div class="courses-main__sort">
-            <select>
-              <option>Phổ biến nhất</option>
-              <option>Mới nhất</option>
-              <option>Giá tăng dần</option>
-              <option>Giá giảm dần</option>
-              <option>Đánh giá cao nhất</option>
+            <select id="sortSelect">
+              <option value="popular">Phổ biến nhất</option>
+              <option value="newest">Mới nhất</option>
+              <option value="price-asc">Giá tăng dần</option>
+              <option value="price-desc">Giá giảm dần</option>
+              <option value="rating">Đánh giá cao nhất</option>
             </select>
           </div>
         </div>
 
-        <div class="courses-main__grid">
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/html&css.jpg" alt="Lập trình Frontend từ Zero đến Hero"><span class="course-card__badge course-card__badge--hot">Hot</span></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Lập trình Frontend từ Zero đến Hero</div>
-              <div class="course-card__author">GV: Trần Minh Khang</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.9</span><span>2,340 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">Miễn phí <small>899.000₫</small></span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/react.jpg" alt="ReactJS chuyên sâu cho người đi làm"><span class="course-card__badge course-card__badge--new">Mới</span></div>
-            <div class="course-card__body">
-              <div class="course-card__title">ReactJS chuyên sâu cho người đi làm</div>
-              <div class="course-card__author">GV: Nguyễn Thu Hà</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.8</span><span>1,120 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">799.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/nodejs.jpg" alt="Xây dựng REST API với NodeJS & Express"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Xây dựng REST API với NodeJS & Express</div>
-              <div class="course-card__author">GV: Lê Văn Đức</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.7</span><span>980 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">699.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/python.jpg" alt="Nhập môn AI & Machine Learning với Python"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Nhập môn AI & Machine Learning với Python</div>
-              <div class="course-card__author">GV: Phạm Anh Tuấn</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.9</span><span>640 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">899.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/Flutter.jpg" alt="Lập trình ứng dụng di động với Flutter"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Lập trình ứng dụng di động với Flutter</div>
-              <div class="course-card__author">GV: Hoàng Gia Bảo</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.6</span><span>420 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">649.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/sql.jpg" alt="Thiết kế & tối ưu cơ sở dữ liệu SQL"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Thiết kế & tối ưu cơ sở dữ liệu SQL</div>
-              <div class="course-card__author">GV: Đỗ Thanh Sơn</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.7</span><span>760 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">549.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/vuejs.jpg" alt="Xây dựng SPA với Vue.js 3"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Xây dựng SPA với Vue.js 3</div>
-              <div class="course-card__author">GV: Ngô Bảo Châu</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.5</span><span>310 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">599.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/spring-boot.jpg" alt="Java Spring Boot cho người mới"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Java Spring Boot cho người mới</div>
-              <div class="course-card__author">GV: Vũ Minh Quân</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.6</span><span>505 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">699.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card__thumb"><img src="../assets/img/figma.jpg" alt="Thiết kế UI/UX với Figma cho người mới"></div>
-            <div class="course-card__body">
-              <div class="course-card__title">Thiết kế UI/UX với Figma cho người mới</div>
-              <div class="course-card__author">GV: Bùi Thảo Vy</div>
-              <div class="course-card__meta"><span class="course-card__rating"><i class="fa-solid fa-star"></i> 4.8</span><span>890 học viên</span></div>
-              <div class="course-card__footer"><span class="course-card__price">549.000₫</span><a href="course-detail.html" class="btn btn--secondary btn--sm">Xem chi tiết</a></div>
-            </div>
-          </article>
-        </div>
+        <div class="courses-main__grid" id="coursesGrid"></div>
 
         <div class="pagination">
           <button class="is-active">1</button>
@@ -214,12 +131,12 @@
       </div>
       <div class="footer__col"><h4>Danh mục</h4><ul><li><a href="courses.html">Frontend</a></li><li><a href="courses.html">Backend</a></li><li><a href="courses.html">Mobile</a></li></ul></div>
       <div class="footer__col"><h4>Liên hệ</h4><ul><li>dkcode@gmail.com.vn</li><li>0345625330</li></ul></div>
-      <div class="footer__col"><h4>Công ty</h4><ul><li><a href="#">About</a></li><li><a href="#">Điều khoản</a></li></ul></div>
+      <div class="footer__col"><h4>Công ty</h4><ul><li><a href="#">About</a></li><li><a href="#">Điều khoản</a></li><li><a href="admin.html">Trang quản trị</a></li></ul></div>
     </div>
    
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
+<script src="../js/courses.js"></script>
 </body>
 </html>
