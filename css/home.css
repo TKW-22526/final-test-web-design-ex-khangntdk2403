@@ -118,14 +118,13 @@
 
 /* ---------- Course grid ---------- */
 .courses__grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
 }
 
 .courses__grid .course-card {
-  flex: 1 1 270px;
-  max-width: calc(25% - 18px);
+    width: 270px;
 }
 
 .section__head-row {

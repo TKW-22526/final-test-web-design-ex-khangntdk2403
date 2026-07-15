@@ -318,14 +318,6 @@ h1, h2, h3, h4, h5 {
   background: var(--color-white);
 }
 
-.header__search i {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-gray-500);
-}
-
 .header__actions {
   display: flex;
   align-items: center;

@@ -89,3 +89,15 @@ function hienThiKhoaHoc(ds) {
 if (courses) {
     hienThiKhoaHoc(data);    
 }
+
+document.getElementById("loginForm").onsubmit = function (e) {
+    e.preventDefault();
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if (email == "admin@gmail.com" && password == "123456")
+        location.href = "admin.html";
+    else
+        location.href = "index.html";
+};

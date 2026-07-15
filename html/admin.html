@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang quản trị | CodeFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <div class="flex" style="align-items:center; gap:14px;">
+      <button class="icon-btn dash-toggle" aria-label="Mở menu" style="display:none;">
+       </button>
+        <a href="../index.html" class="header__brand">
+            <span class="header__logo">DK</span>
+            <span class="header__name">Code<span></span></span>
+        </a>
+     
+    </div>
+    <div class="header__search">
+      <input type="search" placeholder="Tìm khóa học, học viên...">
+    </div>
+    <div class="header__actions">
+      <button class="icon-btn" aria-label="Thông báo">
+        <i class="fa-solid fa-bell"></i>
+        <span class="icon-btn__badge">5</span>
+      </button>
+      <a href="admin.html" class="header__avatar"><div class="avatar-ph">AD</div></a>
+    </div>
+  </div>
+</header>
+
+<div class="dashboard">
+  <aside class="dash-sidebar">
+    <div class="dash-user">
+      <div class="avatar-ph" style="width:46px;height:46px;border-radius:50%;">AD</div>
+      <div>
+        <b>Quản trị viên</b>
+        <span>Administrator</span>
+      </div>
+    </div>
+    <nav class="dash-nav" id="adminNav">
+      <a href="#" class="is-active" data-section="overview"><i class="fa-solid fa-gauge" style="width:16px;"></i> Tổng quan</a>
+      <a href="#" data-section="courses"><i class="fa-solid fa-book" style="width:16px;"></i> Quản lý khóa học</a>
+      <a href="#" data-section="students"><i class="fa-solid fa-users" style="width:16px;"></i> Quản lý học viên</a>
+      <a href="../index.html"><i class="fa-solid fa-house" style="width:16px;"></i> Về trang chủ</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> Đăng xuất</a>
+    </nav>
+  </aside>
+
+  <main class="dash-main">
+
+    <!--  TỔNG QUAN  -->
+    <section class="admin-section is-active" id="section-overview">
+      <h1 class="dash-welcome">Quản trị viên!</h1>
+      <p class="dash-sub">Đây là tổng quan hoạt động của website.</p>
+
+      <div class="stat-cards" id="overviewStats">
+        <!-- được JS render -->
+      </div>
+
+      <div class="dash-block">
+        <div class="dash-block__head">
+          <h3>Khóa học nổi bật nhất</h3>
+          <a href="#" data-goto="courses" style="font-size:13px;color:var(--color-secondary);font-weight:600;">Xem tất cả</a>
+        </div>
+        <div id="topCoursesList"></div>
+      </div>
+
+      <div class="dash-block">
+        <div class="dash-block__head">
+          <h3>Học viên mới đăng ký</h3>
+          <a href="#" data-goto="students" style="font-size:13px;color:var(--color-secondary);font-weight:600;">Xem tất cả</a>
+        </div>
+        <div id="newStudentsList"></div>
+      </div>
+    </section>
+
+    <!--  QUẢN LÝ KHÓA HỌC  -->
+    <section class="admin-section" id="section-courses">
+      <div class="admin-head">
+        <h3>Quản lý khóa học</h3>
+        <button type="button" class="btn btn--primary btn--sm" id="btnAddCourse"><i class="fa-solid fa-plus"></i> Thêm khóa học</button>
+      </div>
+
+      <div class="admin-toolbar">
+        <div class="header__search">
+          <input type="search" id="courseSearch" placeholder="Tìm theo tên khóa học...">
+        </div>
+        <select id="courseCategoryFilter">
+          <option value="">Tất cả danh mục</option>
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="mobile">Mobile</option>
+          <option value="uiux">UI/UX</option>
+          <option value="ai">AI</option>
+        </select>
+        <select id="courseStatusFilter">
+          <option value="">Tất cả trạng thái</option>
+          <option value="active">Đang hoạt động</option>
+          <option value="hidden">Đã ẩn</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Khóa học</th>
+              <th>Danh mục</th>
+              <th>Giá</th>
+              <th>Học viên</th>
+              <th>Đánh giá</th>
+              <th>Trạng thái</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="courseTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!--  QUẢN LÝ HỌC VIÊN  -->
+    <section class="admin-section" id="section-students">
+      <div class="admin-head">
+        <h3>Quản lý học viên</h3>
+      </div>
+
+      <div class="admin-toolbar">
+        <div class="header__search">
+         
+          <input type="search" id="studentSearch" placeholder="Tìm theo tên hoặc email...">
+        </div>
+        <select id="studentStatusFilter">
+          <option value="">Tất cả trạng thái</option>
+          <option value="active">Đang hoạt động</option>
+          <option value="locked">Đã khóa</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Học viên</th>
+              <th>Email</th>
+              <th>Ngày tham gia</th>
+              <th>Khóa học đã mua</th>
+              <th>Trạng thái</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!--  MODAL THÊM / SỬA KHÓA HỌC  -->
+<div class="modal-overlay" id="courseModalOverlay">
+  <div class="modal">
+    <div class="modal__head">
+      <h3 id="courseModalTitle">Thêm khóa học</h3>
+      <button type="button" class="modal__close" id="courseModalClose" aria-label="Đóng">x</button>
+    </div>
+
+    <form id="courseForm">
+      <input type="hidden" id="courseId">
+
+      <div class="form-group form-group--full">
+        <label for="courseTen">Tên khóa học</label>
+        <input type="text" id="courseTen" required>
+      </div>
+
+      <div class="modal__grid">
+        <div class="form-group">
+          <label for="courseGv">Giảng viên</label>
+          <input type="text" id="courseGv" required>
+        </div>
+        <div class="form-group">
+          <label for="courseAnh">Ảnh (đường dẫn)</label>
+          <input type="text" id="courseAnh" placeholder="../assets/img/react.jpg" required>
+        </div>
+        <div class="form-group">
+          <label for="courseDanhMuc">Danh mục</label>
+          <select id="courseDanhMuc" required>
+            <option value="frontend">Frontend</option>
+            <option value="backend">Backend</option>
+            <option value="mobile">Mobile</option>
+            <option value="uiux">UI/UX</option>
+            <option value="ai">AI</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="courseTrinhDo">Trình độ</label>
+          <select id="courseTrinhDo" required>
+            <option value="beginner">Người mới bắt đầu</option>
+            <option value="intermediate">Trung cấp</option>
+            <option value="advanced">Nâng cao</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="courseGia">Giá (₫)</label>
+          <input type="number" id="courseGia" min="0" step="10000" required>
+        </div>
+        <div class="form-group">
+          <label for="courseTrangThai">Trạng thái</label>
+          <select id="courseTrangThai" required>
+            <option value="active">Đang hoạt động</option>
+            <option value="hidden">Ẩn khóa học</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal__actions">
+        <button type="button" class="btn btn--outline btn--sm" id="courseModalCancel">Hủy</button>
+        <button type="submit" class="btn btn--primary btn--sm">Lưu khóa học</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/admin.js"></script>
+</body>
+</html>
