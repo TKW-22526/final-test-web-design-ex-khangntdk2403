@@ -1,6 +1,6 @@
-// ================================
+//
 // DỮ LIỆU KHÓA HỌC (trang "Tất cả khóa học")
-// ================================
+//
 let danhSachKhoaHoc = [
     {
         ten: "Lập trình Frontend từ Zero đến Hero",
