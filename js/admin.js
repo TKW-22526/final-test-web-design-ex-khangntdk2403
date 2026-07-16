@@ -164,10 +164,7 @@ if (dieuHuongAdmin) {
         if (isNaN(d)) return chuoiNgay;
         return d.toLocaleDateString("vi-VN");
     }
-
-    // 
     // ĐIỀU HƯỚNG GIỮA CÁC MỤC (Tổng quan / Khóa học / Học viên)
-    // 
     function chuyenMuc(ten) {
         document.querySelectorAll(".admin-section").forEach(function (s) {
             s.classList.toggle("is-active", s.id === "section-" + ten);
@@ -194,9 +191,7 @@ if (dieuHuongAdmin) {
         });
     }
 
-    // 
     // TRANG TỔNG QUAN
-    // 
    function veThongKeTongQuan() {
 
     let tongKhoaHoc = dsKhoaHocAdmin.length;
@@ -276,9 +271,7 @@ if (dieuHuongAdmin) {
         veHocVienMoi();
     }
 
-    // 
-    // QUẢN LÝ KHÓA HỌC — BẢNG + LỌC
-    // 
+    // QUẢN LÝ KHA HỌC — BẢNG + LỌC
     let oTimKiemKhoaHoc = document.getElementById("courseSearch");
     let oLocDanhMuc = document.getElementById("courseCategoryFilter");
     let oLocTrangThaiKhoaHoc = document.getElementById("courseStatusFilter");
@@ -340,10 +333,7 @@ if (dieuHuongAdmin) {
         oLocDanhMuc.addEventListener("change", veBangKhoaHoc);
         oLocTrangThaiKhoaHoc.addEventListener("change", veBangKhoaHoc);
     }
-
-    // 
     // MODAL THÊM / SỬA KHÓA HỌC
-    // 
     let lopPhuModal = document.getElementById("courseModalOverlay");
     let tieuDeModal = document.getElementById("courseModalTitle");
     let formKhoaHoc = document.getElementById("courseForm");
@@ -445,84 +435,8 @@ if (dieuHuongAdmin) {
         });
     }
 
-    // 
-    // QUẢN LÝ HỌC VIÊN — BẢNG + LỌC
-    // 
-    let oTimKiemHocVien = document.getElementById("studentSearch");
-    let oLocTrangThaiHocVien = document.getElementById("studentStatusFilter");
-    let thanBangHocVien = document.getElementById("studentTableBody");
 
-    function veBangHocVien() {
-        let tuKhoa = oTimKiemHocVien.value.toLowerCase();
-        let trangThai = oLocTrangThaiHocVien.value;
-
-        let ketQua = dsHocVienAdmin.filter(function (hv) {
-            let dungTuKhoa = hv.hoTen.toLowerCase().includes(tuKhoa) || hv.email.toLowerCase().includes(tuKhoa);
-            let dungTrangThai = !trangThai || hv.trangThai === trangThai;
-            return dungTuKhoa && dungTrangThai;
-        });
-
-        if (ketQua.length === 0) {
-            thanBangHocVien.innerHTML = '<tr class="admin-table__empty"><td colspan="6">Không tìm thấy học viên phù hợp.</td></tr>';
-            return;
-        }
-
-        thanBangHocVien.innerHTML = ketQua.map(function (hv) {
-            return `
-            <tr data-id="${hv.id}">
-                <td>${hv.hoTen}</td>
-                <td>${hv.email}</td>
-                <td>${dinhDangNgay(hv.ngayThamGia)}</td>
-                <td>${hv.soKhoaHoc}</td>
-                <td><span class="badge ${hv.trangThai === "active" ? "badge--success" : "badge--danger"}">${hv.trangThai === "active" ? "Hoạt động" : "Đã khóa"}</span></td>
-                <td>
-                    <div class="table-actions">
-                        <button type="button" class="table-icon-btn" data-action="toggle-student" title="${hv.trangThai === "active" ? "Khóa tài khoản" : "Mở khóa"}">
-                            <i class="fa-solid ${hv.trangThai === "active" ? "fa-lock" : "fa-lock-open"}"></i>
-                        </button>
-                        <button type="button" class="table-icon-btn table-icon-btn--danger" data-action="delete-student" title="Xóa">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </td>
-            </tr>`;
-        }).join("");
-    }
-
-    function ganSuKienLocHocVien() {
-        oTimKiemHocVien.addEventListener("input", veBangHocVien);
-        oLocTrangThaiHocVien.addEventListener("change", veBangHocVien);
-    }
-
-    function ganSuKienHanhDongHocVien() {
-        thanBangHocVien.addEventListener("click", function (e) {
-            let nut = e.target.closest("button[data-action]");
-            if (!nut) return;
-
-            let dong = nut.closest("tr");
-            let id = Number(dong.getAttribute("data-id"));
-            let hocVien = dsHocVienAdmin.find(function (hv) { return hv.id === id; });
-            if (!hocVien) return;
-
-            let hanhDong = nut.getAttribute("data-action");
-
-            if (hanhDong === "toggle-student") {
-                hocVien.trangThai = hocVien.trangThai === "active" ? "locked" : "active";
-                veBangHocVien();
-            } else if (hanhDong === "delete-student") {
-                let dongY = confirm('Bạn có chắc muốn xóa học viên "' + hocVien.hoTen + '"?');
-                if (dongY) {
-                    dsHocVienAdmin = dsHocVienAdmin.filter(function (hv) { return hv.id !== id; });
-                    veBangHocVien();
-                    veTrangTongQuan();
-                }
-            }
-        });
-    }
-
-    // 
     // CHẠY KHI TRANG VỪA TẢI XONG
-    // 
     ganSuKienDieuHuong();
     veTrangTongQuan();
     veBangKhoaHoc();
